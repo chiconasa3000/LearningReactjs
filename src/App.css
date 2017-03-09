@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Copse|Lato:700');
+
 .App{
 	text-align: center;
 }
@@ -8,8 +10,9 @@
 }
 
 .App-header{
+	font-family: 'Lato', sans-serif;
 	background-color: #223;
-	height: 200px;
+	height: 300px;
 	padding: 40px;
 	color: white;
 }
@@ -18,8 +21,38 @@
 	font-size: larger;
 }
 
-.App-container{
-	border:solid;
+.App-Body{
+	font-family: 'Lato', sans-serif;
+}
+
+.App-Avatar{
+	height: 180px;
+}
+
+.Comment{
+	border-radius: 10px 10px 10px 10px;
+	border: solid;
+	width: 550px;
+	height: 250px;
+	margin: 40px auto;
+	padding: 30px;
+	border-width: 2px;
+}
+
+.Comment-text{
+	margin-top:60px;
+	font-family: 'Copse', serif;
+	font-size: 20px;
+}
+
+.Comment-date{
+	margin: 10px auto;
+}
+
+.UserInfo-name{
+	font-family: 'Copse', serif;
+	font-weight: bold;
+	margin: 10px;
 }
 
 @keyframes App-logo-spin{

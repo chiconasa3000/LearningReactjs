@@ -103,6 +103,53 @@ const modalInstance = (
 
 //<Comment date={comment.date} text={comment.text} author={comment.author}/>
 
+function FormattedDate(props){
+  return <h4>La hora actual es: {props.date.toLocaleTimeString()}</h4>
+}
+
+//clase clock tambien es un componente
+
+class Clock extends React.Component{
+  constructor(props){
+    super(props);// constructor principal
+
+    //constructor secundario que inicia la fecha
+    this.state = {date: new Date()};
+  }
+
+  //1er lifecycle hook methos el cual setea la fecha
+  componentDidMount(){
+    this.timerID = setInterval(
+      ()=>this.tick(), 1000
+    );
+  }
+
+//2do lifecycle hook method el cual recicla la fecha
+  componentWillUnmount(){
+    clearInterval(this.timerID);
+  }
+
+//funcion principal que es llama por el seteador de fecha
+//se encarga de actualizar la fecha actual
+  tick(){
+    this.setState({
+      date: new Date()
+    });
+  }
+
+  render(){
+  	//su propio objeto de renderizacion
+  	//ademas aqui llamamos a la variable estadp
+  	//el cual contiene ya una fecha inicializada
+    return(
+      <div className="Comment-date">
+        <FormattedDate date={this.state.date}/>
+      </div>
+    );
+  }
+
+}
+
 class App extends Component {
 	render(){
 		return (
@@ -115,6 +162,7 @@ class App extends Component {
 				  {getGreeting(user)}
           <Gustos hobby="investigar"/>
           {modalInstance}
+          <Clock />
         </div>
 			</div>
 		);
